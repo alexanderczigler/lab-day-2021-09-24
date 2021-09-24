@@ -13,3 +13,14 @@ A gentle comparison of GraphQL, gRPC and OpenAPI.
 ### Method
 
 Using each of the frameworks, build a basic API doing the same things.
+
+## GraphQL
+
+### Likes
+ - Built-in query tool
+ - Structured way to specify what is visible to the clients
+
+### Dislikes
+ - Need to learn a new query language
+ - Some error messages are too esoteric/non-descriptive
+ - Feels a bit repetitive
