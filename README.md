@@ -15,6 +15,11 @@ A gentle comparison of GraphQL, gRPC and OpenAPI.
 Using each of the frameworks, build a basic API doing the same things.
 
 ## GraphQL
+
+I have some previous experience working with GraphQL backends so this was not completely new to me. I think GraphQL adds a pretty nice layer of control between the backend and frontend(s) and the built-in query tool is wonderful. When working with other developers GraphQL makes it easy to discuss the API.
+
+The documentation is good and there are plenty of examples out there to learn from. What I do not like about it is that when I do something wrong I often get error messages that are hard to decipher. GraphQL has a bit of a learning curve to it but I think it is worth the time and effort.
+
 ### Likes
  - Built-in query tool
  - Structured way to specify what is visible to the clients
