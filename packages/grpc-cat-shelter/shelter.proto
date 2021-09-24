@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cat.shelter";
+option java_outer_classname = "CatShelter";
+option objc_class_prefix = "SHELTER";
+
+package catshelter;
+
+service Shelter {
+  rpc Rescue (RescueRequest) returns (RescueReply) {}
+}
+
+message RescueRequest {
+  string colour = 1;
+  string name = 2;
+}
+
+message RescueReply {
+  string message = 1;
+}
