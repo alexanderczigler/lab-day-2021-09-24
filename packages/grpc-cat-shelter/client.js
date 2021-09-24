@@ -12,7 +12,7 @@ const packageDefinition = protoLoader.loadSync(
     defaults: true,
     oneofs: true
   });
-const hello_proto = grpc.loadPackageDefinition(packageDefinition).catshelter;
+const shelter_proto = grpc.loadPackageDefinition(packageDefinition).catshelter;
 
 function main() {
   const argv = parseArgs(process.argv.slice(2), {
@@ -24,11 +24,39 @@ function main() {
   } else {
     target = 'localhost:50051';
   }
-  const client = new hello_proto.Shelter(target,
+  const client = new shelter_proto.Shelter(target,
     grpc.credentials.createInsecure());
 
-  client.rescue({ colour: 'white', name: 'misty' }, (error, response) => {
-    console.log(response.message)
+  client.rescue({ colour: 'white', name: 'misty' }, (_, response) => {
+    console.log('Rescued cat', response)
+  })
+
+  client.rescue({ colour: 'calico', name: 'beans' }, (_, response) => {
+    console.log('Rescued cat', response)
+  })
+
+  client.browse(null, (_, response) => {
+    console.log('Eligible cats', response)
+  })
+
+  client.vaccinate({ name: 'beans' }, (_, response) => {
+    console.log('Vaccinated cat:', response.name)
+  })
+
+  client.browse(null, (_, response) => {
+    console.log('Eligible cats', response)
+  })
+
+  client.vaccinate({ name: 'misty' }, (_, response) => {
+    console.log('Vaccinated cat:', response.name)
+  })
+
+  client.adopt({ name: 'misty' }, (_, response) => {
+    console.log('Adopted cat:', response.name)
+  })
+
+  client.browse(null, (_, response) => {
+    console.log('Eligible cats', response)
   })
 }
 

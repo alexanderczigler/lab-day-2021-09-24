@@ -8,14 +8,29 @@ option objc_class_prefix = "SHELTER";
 package catshelter;
 
 service Shelter {
-  rpc Rescue (RescueRequest) returns (RescueReply) {}
+  rpc Adopt (NameRequest) returns (Cat) {}
+  rpc Browse (Empty) returns (Cats) {}
+  rpc Rescue (RescueCatRequest) returns (Cat) {}
+  rpc Vaccinate (NameRequest) returns (Cat) {}
 }
 
-message RescueRequest {
+message Cats {
+  repeated Cat cats = 1;
+}
+
+message Cat {
+  string adopted = 1;
+  string colour = 2;
+  string name = 3;
+}
+
+message NameRequest {
+  string name = 1;
+}
+
+message RescueCatRequest {
   string colour = 1;
   string name = 2;
 }
 
-message RescueReply {
-  string message = 1;
-}
+message Empty {}
