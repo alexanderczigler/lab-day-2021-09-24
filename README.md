@@ -1,8 +1,10 @@
 # Lab day 2021-09-24
 
+A gentle comparison of GraphQL, gRPC and OpenAPI.
+
 ## Introduction
 
-A gentle comparison of GraphQL, gRPC and OpenAPI.
+At Iteam use one friday every month to experiment and learn. We call these fridays "lab days". I am spending this lab day to have a brief look at GraphQL, gRPC and OpenAPI and compare them. As I am only spending a day on this I will have to limit my scope quite a lot. I will for example not go into comparing performance or anything like that but rather focus on what it is like to get started with each of the frameworks and what I like/dislike about them at a first glance.
 
 ### What do I want to compare?
  - Basic CRUD operations
