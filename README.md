@@ -19,6 +19,9 @@ Using each of the frameworks, build a basic API doing the same things.
 ### Likes
  - Built-in query tool
  - Structured way to specify what is visible to the clients
+ - It takes little effort to comment and document the API
+ - Tooling
+ - Docs + examples
 
 ### Dislikes
  - Need to learn a new query language
