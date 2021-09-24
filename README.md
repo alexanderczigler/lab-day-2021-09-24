@@ -34,7 +34,17 @@ The documentation is good and there are plenty of examples out there to learn fr
  - Some error messages are too esoteric/non-descriptive
  - Feels a bit repetitive
 
- ## gRPC
+### Running
+
+```bash
+cd packages/graphql-cat-shelter
+npm ci
+npm run dev
+```
+
+Then checkout `insomnia.json` for some example requests.
+
+## gRPC
 
 I am completely new to gRPC. At a first glance it looks a bit different than my usual way of making http(s) calls between backends and/or frontend <-> backend. The code examples look a bit complicated and scary because they include a bunch of different languages, but it didn't take long until I found a nodejs example in the public grpc repos.
 
@@ -45,3 +55,15 @@ I am completely new to gRPC. At a first glance it looks a bit different than my 
 
 ### Dislikes
  - Requires additional components to serve web browsers
+
+### Running
+
+```bash
+cd packages/grpc-cat-shelter
+npm ci
+npm run dev
+
+# in a second terminal...
+cd packages/grpc-cat-shelter
+npm run dev:client
+```
