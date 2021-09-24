@@ -67,3 +67,15 @@ npm run dev
 cd packages/grpc-cat-shelter
 npm run dev:client
 ```
+
+## OpenApi
+
+A terrible experience. I lost so much time just trying to get a simple thing as post body working. The name "openapi" is very unfortunate because google results are diluted with all sorts of things. It is also a bit tricky to find documentation and examples matching the version you happen to be using.
+
+### Likes
+ - You can choose to spec your API using either yaml or json
+ - It is easy to split the API spec into different components
+ - Easy to version
+
+### Dislikes
+ - A basic thing like requestBody being so poorly documented
