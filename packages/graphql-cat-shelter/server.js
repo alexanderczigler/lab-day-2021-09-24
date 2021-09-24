@@ -8,8 +8,14 @@ const CATS = []
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
+  """
+  Represents a DateTime
+  """
   scalar Date
 
+  """
+  The cat (Felis catus) is a domestic species of small carnivorous mammal.
+  """
   type Cat {
     adopted: Date
     colour: String
@@ -19,9 +25,24 @@ var schema = buildSchema(`
   }
 
   type Query {
+    """
+    Adopt a cat.
+    """
     adopt(name: String!): Cat
+    
+    """
+    Show all cats eligible for adoption, only shows vaccinated cats.
+    """
     browse: [Cat]
+
+    """
+    Add a new rescue to the shelter.
+    """
     rescue(colour: String!, name: String!): Cat
+
+    """
+    Mark a cat as vaccinated, making her/him eligible for adoption.
+    """
     vaccinate(name: String!): Cat
   }
 `)
