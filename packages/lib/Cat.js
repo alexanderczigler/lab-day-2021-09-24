@@ -7,6 +7,14 @@ class Cat {
     this.rescued = new Date()
     this.vaccinated = false
   }
+
+  adopt() {
+    this.adopted = new Date()
+  }
+
+  vaccinate() {
+    this.vaccinated = true
+  }
 }
 
 module.exports = Cat

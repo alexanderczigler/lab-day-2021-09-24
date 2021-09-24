@@ -2,7 +2,7 @@ const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
 const { buildSchema } = require('graphql')
 
-const Cat = require('./lib/Cat')
+const Cat = require('../lib/Cat')
 
 const CATS = []
 
@@ -29,14 +29,14 @@ var schema = buildSchema(`
 // The root provides a resolver function for each API endpoint
 var root = {
   adopt: ({ name }) => {
-    const cats = CATS.filter(cat => cat.name === name)
+    const cat = CATS.filter(cat => cat.name === name)[0]
 
-    if (!cats || !cats.length) {
+    if (!cat) {
       throw { error: `There is no cat named ${name}` }
     }
 
-    cats[0].adopted = new Date;
-    return cats[0]
+    cat.adopt()
+    return cat
   },
   browse: () => {
     return CATS.filter(cat => cat.vaccinated)
@@ -54,14 +54,14 @@ var root = {
     return rescuedCat
   },
   vaccinate: ({ name }) => {
-    const cats = CATS.filter(cat => cat.name === name)
+    const cat = CATS.filter(cat => cat.name === name)[0]
 
-    if (!cats || !cats.length) {
+    if (!cat) {
       throw { error: `There is no cat named ${name}` }
     }
 
-    cats[0].vaccinated = true;
-    return cats[0]
+    cat.vaccinate()
+    return cat
   }
 }
 
