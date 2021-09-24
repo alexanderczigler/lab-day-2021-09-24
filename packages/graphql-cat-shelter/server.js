@@ -3,8 +3,9 @@ const { graphqlHTTP } = require('express-graphql')
 const { buildSchema } = require('graphql')
 
 const Cat = require('../lib/Cat')
+const Shelter = require('../lib/Shelter')
 
-const CATS = []
+const shelter = new Shelter()
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
@@ -50,7 +51,7 @@ var schema = buildSchema(`
 // The root provides a resolver function for each API endpoint
 var root = {
   adopt: ({ name }) => {
-    const cat = CATS.filter(cat => cat.name === name)[0]
+    const cat = shelter.find(name)
 
     if (!cat) {
       throw { error: `There is no cat named ${name}` }
@@ -60,22 +61,16 @@ var root = {
     return cat
   },
   browse: () => {
-    return CATS.filter(cat => cat.vaccinated)
+    return shelter.eligibleCats()
   },
   rescue: ({ colour, name }) => {
-    if (CATS.filter(cat => cat.name === name).length > 0) {
-      throw {
-        error: `There is already a cat named ${name}`
-      }
-    }
-
     const rescuedCat = new Cat(colour, name)
-    CATS.push(rescuedCat)
+    shelter.rescue(rescuedCat)
 
     return rescuedCat
   },
   vaccinate: ({ name }) => {
-    const cat = CATS.filter(cat => cat.name === name)[0]
+    const cat = shelter.find(name)
 
     if (!cat) {
       throw { error: `There is no cat named ${name}` }
