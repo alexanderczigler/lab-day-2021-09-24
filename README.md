@@ -4,7 +4,7 @@ A gentle comparison of GraphQL, gRPC and OpenAPI.
 
 ## Introduction
 
-At Iteam use one friday every month to experiment and learn. We call these fridays "lab days". I am spending this lab day to have a brief look at GraphQL, gRPC and OpenAPI and compare them. As I am only spending a day on this I will have to limit my scope quite a lot. I will for example not go into comparing performance or anything like that but rather focus on what it is like to get started with each of the frameworks and what I like/dislike about them at a first glance.
+At Iteam we use one friday every month to experiment and learn. We call these fridays "lab days". I am spending this lab day to have a brief look at GraphQL, gRPC and OpenAPI and compare them. As I am only spending a day on this I will have to limit my scope quite a lot. I will for example not go into comparing performance or anything like that but rather focus on what it is like to get started with each of the frameworks and what I like/dislike about them at a first glance.
 
 ### What do I want to compare?
  - Basic CRUD operations
@@ -70,7 +70,7 @@ npm run dev:client
 
 ## OpenApi
 
-A terrible experience. I lost so much time just trying to get a simple thing as post body working. The name "openapi" is very unfortunate because google results are diluted with all sorts of things. It is also a bit tricky to find documentation and examples matching the version you happen to be using.
+I lost so much time trying to get a simple thing as post body working. There is plenty of documentation and examples for Swagger/OpenAPI yet I found it tricky to find exactly what I was looking for.
 
 ### Likes
  - You can choose to spec your API using either yaml or json
